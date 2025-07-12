@@ -1,4 +1,4 @@
-// 飲料折扣戰(餘數%的使用案例)
+// 飲料折扣戰(除法的使用案例)
 public class Hello9 {
 
 	public static void main(String[] args) {
