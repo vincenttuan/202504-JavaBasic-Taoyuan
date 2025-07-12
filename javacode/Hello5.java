@@ -17,6 +17,9 @@ public class Hello5 {
 
 		System.out.printf("品名:%s 單價:%.1f 數量:%,d 小計:%,.1f%n", name2, price2, qty2, subTotal2);
 
+		double pi = 3.1415926;
+		System.out.printf("圓周率: %.2f %n", pi); // 3.14
+		System.out.printf("圓周率: %.4f %n", pi); // 3.1416 (會自動四捨五入)
 
 	}
 }
