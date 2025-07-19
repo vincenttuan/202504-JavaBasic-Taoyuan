@@ -23,7 +23,7 @@ public class Hello15 {
 		// 檢查 "購買數量"是否 > "庫存量"
 		if(amount > qty) {
 			System.out.println("目前庫存量不足無法購買");
-			return;
+			return; // 此方法結束(下面的程式就不執行)
 		}
 
 		// 應付金額
