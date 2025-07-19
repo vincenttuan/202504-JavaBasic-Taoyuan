@@ -36,8 +36,8 @@ public class Hello15 {
 
 		int one = change;
 
-		System.out.printf("500元找 %d 枚%n", fiveHundred);
-		System.out.printf("100元找 %d 枚%n", hundred);
+		System.out.printf("500元找 %d 張%n", fiveHundred);
+		System.out.printf("100元找 %d 張%n", hundred);
 		System.out.printf("50元找 %d 枚%n", fifty);
 		System.out.printf("10元找 %d 枚%n", ten);
 		System.out.printf("5元找 %d 枚%n", five);
