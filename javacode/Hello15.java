@@ -16,9 +16,15 @@ public class Hello15 {
 		int qty = 100; // 庫存量(最多可以購買的數量)
 		System.out.printf("飲料庫存:%d瓶%n", qty);
 
-		// 數量
+		// 購買數量
 		System.out.print("請輸入購買數量:");
 		int amount = scanner.nextInt();
+
+		// 檢查 "購買數量"是否 > "庫存量"
+		if(amount > qty) {
+			System.out.println("目前庫存量不足無法購買");
+			return;
+		}
 
 		// 應付金額
 		int total = price * amount;
