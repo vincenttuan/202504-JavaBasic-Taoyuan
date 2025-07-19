@@ -12,6 +12,10 @@ public class Hello15 {
 		int price = 123; // 飲料價格
 		System.out.printf("飲料價格:%d%n", price);
 
+		// 庫存量
+		int qty = 100; // 庫存量(最多可以購買的數量)
+		System.out.printf("飲料庫存:%d瓶%n", qty);
+
 		// 數量
 		System.out.print("請輸入購買數量:");
 		int amount = scanner.nextInt();
