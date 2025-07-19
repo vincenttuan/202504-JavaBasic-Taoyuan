@@ -18,6 +18,7 @@ public class Hello20 {
 			System.out.println("--- 虛擬貨幣購買系統 ---");
 			System.out.printf("目前每一枚虛擬幣價格: %,d 元%n", coinPrice);
 			System.out.printf("你的台幣餘額: %,d 元%n", balanceTWD);
+			System.out.printf("你的虛擬幣庫存: %,d 枚%n", coinBalance);
 			System.out.println("--------------------------------");
 			System.out.println("0: 離開系統");
 			System.out.println("1: 買進虛擬幣");
@@ -46,7 +47,22 @@ public class Hello20 {
 				System.out.printf("剩餘台幣: %,d 元 虛擬幣: %,d 枚%n", balanceTWD, coinBalance);
 				System.out.println("=================================");
 			} else if(choice == 2) { // 賣出
-				System.out.println("暫不提供");
+				System.out.printf("請輸入欲賣出的虛擬幣枚數(你的庫存: %d 枚) ==> ", coinBalance);
+				int sellAmount = scanner.nextInt();
+				// 賣出數量不可 > 庫存量
+				if(sellAmount > coinBalance) {
+					System.out.println("庫存量不足");
+					continue;
+				}
+				// 進行交易
+				// 總賣出金額
+				int totalRevenue = coinPrice * sellAmount;
+				balanceTWD = balanceTWD + totalRevenue;
+				coinBalance = coinBalance - sellAmount;
+				System.out.printf("成功賣出: %,d 枚 虛擬幣, 金額: %,d 元%n", sellAmount, totalRevenue);
+				System.out.printf("剩餘台幣: %,d 元 虛擬幣: %,d 枚%n", balanceTWD, coinBalance);
+				System.out.println("=================================");
+
 			} else {
 				continue;
 			}
