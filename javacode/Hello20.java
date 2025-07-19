@@ -18,7 +18,7 @@ public class Hello20 {
 			System.out.println("--- 虛擬貨幣購買系統 ---");
 			System.out.printf("目前每一枚虛擬幣價格: %,d 元%n", coinPrice);
 			System.out.printf("你的台幣餘額: %,d 元%n", balanceTWD);
-			System.out.printf("你的虛擬幣庫存: %,d 枚%n", coinBalance);
+			System.out.printf("你的虛擬幣庫存: %,d 枚 帳面價值: %,d 元%n", coinBalance, (coinBalance*coinPrice));
 			System.out.printf("你的獲利金額: %,d 元%n", (balanceTWD - 10000));
 			System.out.println("--------------------------------");
 			System.out.println("0: 離開系統");
