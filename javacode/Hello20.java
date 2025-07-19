@@ -9,33 +9,48 @@ public class Hello20 {
 		int balanceTWD = 10000; // 台幣餘額
 		int coinBalance = 0; // 虛擬幣(整數枚數)
 
+		int basePrice = 2000; // 基準價格
+		int minPrice = basePrice * 80 / 100; // 最低 80%
+		int maxPrice = basePrice * 120 / 100; // 最高 120%
+
 		while(true) {
-			int coinPrice = 2000; // 每枚虛擬幣價格
+			int coinPrice = minPrice + (int)(Math.random() * (maxPrice - minPrice)); // 透過 random 隨機跑出一個價格
 			System.out.println("--- 虛擬貨幣購買系統 ---");
 			System.out.printf("目前每一枚虛擬幣價格: %,d 元%n", coinPrice);
 			System.out.printf("你的台幣餘額: %,d 元%n", balanceTWD);
 			System.out.println("--------------------------------");
-			System.out.print("請輸入欲購買的虛擬幣枚數(輸入 0 可以離開系統) ==> ");
-			int buyAmount = scanner.nextInt();
-			if(buyAmount <= 0) {
+			System.out.println("0: 離開系統");
+			System.out.println("1: 買進虛擬幣");
+			System.out.println("2: 賣出虛擬幣");
+			System.out.println("3: 詢價");
+			System.out.println("--------------------------------");
+			System.out.print("請選擇 ==> ");
+			int choice = scanner.nextInt();
+			if(choice == 0) {
 				System.out.println("交易結束, 再見!");
 				break;
-			}
-			// 總購入成本
-			int totalCost = coinPrice * buyAmount;
-			// 判斷餘額是否足夠
-			if(balanceTWD < totalCost) {
-				System.out.println("台幣餘額不足");
+			} else if(choice == 1) { // 買進
+				System.out.print("請輸入欲購買的虛擬幣枚數 ==> ");
+				int buyAmount = scanner.nextInt();
+				// 總購入成本
+				int totalCost = coinPrice * buyAmount;
+				// 判斷餘額是否足夠
+				if(balanceTWD < totalCost) {
+					System.out.println("台幣餘額不足");
+					continue;
+				}
+				// 交易進行
+				balanceTWD = balanceTWD - totalCost;
+				coinBalance = coinBalance + buyAmount;
+				System.out.printf("成功購買: %,d 枚 虛擬幣, 花費: %,d 元%n", buyAmount, totalCost);
+				System.out.printf("剩餘台幣: %,d 元 虛擬幣: %,d 枚%n", balanceTWD, coinBalance);
+				System.out.println("=================================");
+			} else if(choice == 2) { // 賣出
+				System.out.println("暫不提供");
+			} else {
 				continue;
 			}
-			// 交易進行
-			balanceTWD = balanceTWD - totalCost;
-			coinBalance = coinBalance + buyAmount;
-			System.out.printf("成功購買: %,d 枚 虛擬幣, 花費: %,d 元%n", buyAmount, totalCost);
-			System.out.printf("剩餘台幣: %,d 元 虛擬幣: %,d 枚%n", balanceTWD, coinBalance);
-			System.out.println("=================================");
+			
 		}
-
 	}
-
 }
